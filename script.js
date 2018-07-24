@@ -1,20 +1,35 @@
 class Pizza {
     constructor(ingredients = ['cheese']){
         this.ingredients = ingredients;
-        this.price = ((this.ingredients.length - 1) * 0.99) + 10;
+        
     }
 };
 
-// class smallPizza extends Pizza{
-//     constructor(){
-//         this.price 
-//     }
-// }
+class smallPizza extends Pizza{
+    constructor(ingredients = ['cheese']){
+        super(ingredients);
+        this.price = ((this.ingredients.length - 1) * 0.99) + 8.99;
+    }
+}
 
-let jeffsPizza = new Pizza (['cheese', 'pepperoni']);
-let caseysPizza = new Pizza (['cheese', 'sausage', 'peppers']);
+class mediumPizza extends Pizza{
+    constructor(ingredients = ['cheese']){
+        super(ingredients);
+        this.price = ((this.ingredients.length - 1) * 0.99) + 10.99;
+    }
+}
 
-console.log(jeffsPizza);
+class largePizza extends Pizza{
+    constructor(ingredients = ['cheese']){
+        super(ingredients);
+        this.price = ((this.ingredients.length - 1) * 0.99) + 12.99;
+    }
+}
+
+let jeffsPizza = new smallPizza (['cheese', 'pepperoni']);
+let caseysPizza = new smallPizza (['cheese', 'sausage', 'peppers']);
+let millersPizza = new largePizza (['cheese', 'onion', 'chicken', 'barbeque sauce'])
+
 
 
 class Order {
@@ -38,6 +53,7 @@ let myOrder = new Order
 
 myOrder.addToOrder(jeffsPizza);
 myOrder.addToOrder(caseysPizza);
+myOrder.addToOrder(millersPizza)
 
 console.log(myOrder.totalOrder());
 
